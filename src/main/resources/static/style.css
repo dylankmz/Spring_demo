@@ -1,0 +1,7 @@
+th {
+    color: red;
+}
+
+tr:nth-child(odd) {
+    color: green;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Students</title>
+</head>
+<body>
+<h1>Students</h1>
+<form method="post" th:action="@{/index}" th:object="${new_student}">
+    First Name: <input type="text" name="firstname" th:field="*{firstName}" /> <br> <br>
+    Last Name: <input type="text" name="lastname" th:field="*{lastName}"/><br> <br>
+    Specialisatie: <input type="text" name="specialisatie" th:field="*{specialisatie}"/><br> <br>
+    <input type="submit" value="Submit" name="submit">
+    <br><br>
+</form>
+<table>
+    <thead>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Specialisatie</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="student : ${all_students}">
+        <td th:text="${student.firstName}"></td>
+        <td th:text="${student.lastName}"></td>
+        <td th:text="${student.specialisatie}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
